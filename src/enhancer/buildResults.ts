@@ -89,9 +89,13 @@ export class BuildResultsSection extends Controls.BaseControl {
         build: TFS_Build_Contracts.Build) {
         if (sharedConfig) {
             var showMrNorris = false;
+            var projectName = VSS.getWebContext().project.name;
             var buildClient: TFS_Build.BuildHttpClient3_1 = TFS_Build.getClient();
-            buildClient.getDefinition(build.definition.id, VSS.getWebContext().project.name).then(buildDefinition => {
+            console.log("Fetching build definition " + build.definition.id + " for project " + projectName);
+            buildClient.getDefinition(build.definition.id, projectName).then(buildDefinition => {
+                console.log("Found build definition");
                 buildDefinition.build.forEach(step => {
+                    console.log("Looing at build step" + step.displayName);
                     if (step.task.id == "6785970c-2d58-4260-b047-0a54028ee9c1") {
                         showMrNorris = true;
                         console.log("Found mr Norris!")

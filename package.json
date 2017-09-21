@@ -14,8 +14,8 @@
     "typescript": "2.3"
   },
   "dependencies": {
-    "@types/jquery": "^3.2.10",
-    "@types/q": "^1.0.3",
+    "@types/jquery": "^3.2.12",
+    "@types/q": "^1.0.5",
     "vss-web-extension-sdk": "^2.117.0"
   }
 }
